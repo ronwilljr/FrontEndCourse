@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 175%;
+}
+h3 {
+    color: blue;
+    margin: 0px 0px 10px 0px;
+    float: right;
+    border: 1px solid black;
+    padding: 2px 10px 2px 10px;
+    background-color: pink;
+    position: relative;
+    bottom: 1px;
+    left: 1px;
+    font-size: 125%;
+    width: 60%;
+}
+.container {
+    border: 1px solid black;
+    background-color: grey;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+    font-family: Helvetica;
+    color: white;
+    height: 200px;
+    
+}
+.scrollable {
+    overflow:hidden;
+    height: 40%;
+    clear: both;
+}
+.scrollable:hover {
+    cursor:ns-resize;
+    overflow-y:scroll;
+}
+p {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Helvetica;
+  color: black;
+  clear:both;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#chicken {
+    background-color: pink;
+    color: black;
+}
+#beef {
+    background-color: red;
+    color: white;
+}
+#sushi {
+    background-color: burlywood;
+    color: black;
+}
+.row {
+  width: 100%;
+}
+@media (min-width: 992px) {
+    #newTitle {
+        display: none;
+    }
+    .col-lg-4 {
+        float: left;
+        width: 33.33%;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    #newTitle {
+        display: none;
+    }
+    .col-md-6 {
+        float: left;
+        width: 50%;
+    } 
+    #sushiBox {
+        width: 100%;
+    } 
+    #sushiContainer {
+        width: 95%;
+    }
+}
+@media (max-width: 767px) {
+
+    #newTitle {
+        display: block;
+        font-size: 140%;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: left;
+        margin-left: 5%;
+    }
+    #oldTitle {
+        display: none;
+    }
+    .col-md-12 {
+      float: left;
+      width: 100%;
+    }
+    #chicken {
+        width:auto;
+        float:none;
+        position: static;
+        text-align: center;
+    }
+    #beef {
+        width:auto;
+        float:none;
+        position: static;
+        text-align: center;
+    }
+    #sushi {
+        width:auto;
+        float:none;
+        position: static;
+        text-align: center;
+    }
+    .container .scrollable {
+        height: 50%;
+    }
+}
