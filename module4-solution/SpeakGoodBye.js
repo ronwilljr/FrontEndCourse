@@ -22,7 +22,7 @@
        }
    
        byeSpeaker.speakSimple = function (name) {
-       return speakWord + " " + name;
+           return speakWord + " " + name;
        };
    
    // STEP 9: Expose the 'byeSpeaker' object to the global scope. Name it
