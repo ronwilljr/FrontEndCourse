@@ -182,9 +182,12 @@ function buildStarsViewHtml (aboutHtml) {
   var outputHtml = "<section class='col'>";
   let tempHtml = '';
   for (var i = 0; i < numStars; i++) {
+    tempHtml += insertProperty(aboutHtml, `class${i+1}`,"fa fa-star");
+  }
+  for (var i = numStars; i < 5; i++) {
     tempHtml += insertProperty(aboutHtml, `class${i+1}`,"fa fa-star-o");
   }
-  outputHtml += tempHtml + `${numStars}-star rating` + "</section>";
+  outputHtml += `${numStars}-star` + tempHtml + "</section>";
   return outputHtml;
 }
 
