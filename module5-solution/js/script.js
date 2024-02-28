@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtmlUrl = "snippets/about-snippet.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -157,6 +158,39 @@ dc.loadMenuItems = function (categoryShort) {
     menuItemsUrl + categoryShort + ".json",
     buildAndShowMenuItemsHTML);
 };
+
+dc.loadAboutStars = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtmlUrl) {
+      var stars = buildStarsViewHtml(aboutHtmlUrl);
+      insertHtml("#main-content", stars);
+    },
+    false);
+};
+
+function buildAndShowAboutHTML () {
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    buildStarsViewHtml
+    );
+}
+
+function buildStarsViewHtml (aboutHtml) {
+  var numStars = randomStars();
+  var outputHtml = "<section class='col'>";
+  let tempHtml = '';
+  for (var i = 0; i < numStars; i++) {
+    tempHtml += insertProperty(aboutHtml, `class${i+1}`,"fa fa-star-o");
+  }
+  outputHtml += html + `${numStars}-star rating` + "</section>";
+  return outputHtml;
+}
+
+function randomStars() {
+  return Math.floor(Math.random() * 5) + 1;
+}
 
 
 // Builds HTML for the categories page based on the data
