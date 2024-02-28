@@ -184,7 +184,7 @@ function buildStarsViewHtml (aboutHtml) {
   for (var i = 0; i < numStars; i++) {
     tempHtml += insertProperty(aboutHtml, `class${i+1}`,"fa fa-star-o");
   }
-  outputHtml += html + `${numStars}-star rating` + "</section>";
+  outputHtml += tempHtml + `${numStars}-star rating` + "</section>";
   return outputHtml;
 }
 
