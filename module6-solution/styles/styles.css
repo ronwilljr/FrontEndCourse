@@ -1,0 +1,12 @@
+.greenText {
+    color:green;
+}
+.redText {
+    color:red;
+}
+.greenBorder {
+    border:1px green solid;
+}
+.redBorder {
+    border:1px red solid;
+}
