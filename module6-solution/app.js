@@ -1,12 +1,12 @@
 (function () {
     'use strict';
-    
-    angular.module('LunchCheck', [])
-        .controller('LunchCheckController', LunchCheckController);
 
-    LunchCheckController.$inject = ['$scope'];
+    angular.module('LunchChecker', [])
+        .controller('LunchCheckerController', LunchCheckerController);
 
-    function LunchCheckController($scope) {
+    LunchCheckerController.$inject = ['$scope'];
+
+    function LunchCheckerController($scope) {
         $scope.input = "";
         $scope.message = "Please enter data first";
         $scope.CheckSize = function () {
