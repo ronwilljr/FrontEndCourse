@@ -26,7 +26,6 @@
           var promise = MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm);
           promise.then(function (result) {
             narrowItDown.found = result;
-            console.log(result);
           })
             .catch(function (error) {
               console.log('Error: ', error);
@@ -39,8 +38,8 @@
     }
     MenuSearchService.$inject = ['$http', 'ApiBasePath'];
     function MenuSearchService($http, ApiBasePath) {
-      var service = this;
-      service.getMatchedMenuItems = function (searchTerm) {
+      var menuSearch = this;
+      menuSearch.getMatchedMenuItems = function (searchTerm) {
         var response = $http({
           method: "GET",
           url: (ApiBasePath + "/menu_items.json")
@@ -56,4 +55,4 @@
         });
       };
     }
-  })();
+})();
