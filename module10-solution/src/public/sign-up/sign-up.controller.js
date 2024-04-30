@@ -23,7 +23,7 @@
         MenuService.getMenuItem($ctrl.favoriteDish)
           .then(function (data) {
             console.log("here1: ")
-            console.log(data.responseData)
+            console.log(data)
             if (data) {
               $ctrl.dishEmpty = false
               $ctrl.favoriteDishFound = true;
