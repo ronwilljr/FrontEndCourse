@@ -16,11 +16,11 @@
       }
       else {
         temp = parseInt(shortName.charAt(i)) - 1
+        num += temp.toString();
         if (temp === 0) {
           imgNum += "";
         }
         else {
-          num += temp.toString();
           imgNum = num
         }
       }
