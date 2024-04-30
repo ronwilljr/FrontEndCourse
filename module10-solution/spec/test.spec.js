@@ -21,15 +21,15 @@ describe('The menu service', function () {
       $httpBackend.expectGET(ApiPath + '/menu_items/D/menu_items/3.json').respond(testData);
       menuService.getMenuItem('D4').then(function(item) {
         console.log('item: ')
-        console.log(item)
+        console.log(item.short_name)
         console.log('testData: ')
-        console.log(testData)
+        console.log(testData.short_name)
         expect(item).toEqual(testData);
       });
       $httpBackend.flush();
     });
     it('should fail to retrieve D3', function() {
-      $httpBackend.expectGET(ApiPath + '/menu_items/null/menu_items/.json').respond(null);
+      $httpBackend.expectGET(ApiPath + '/menu_items/NULL/menu_items/NaN.json').respond(null);
       menuService.getMenuItem('null').then(function(item) {
         console.log('item: ')
         console.log(item)
