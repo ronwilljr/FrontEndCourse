@@ -22,6 +22,8 @@
         }
         MenuService.getMenuItem($ctrl.favoriteDish)
           .then(function (data) {
+            console.log("here1: ")
+            console.log(data)
             if (data) {
               $ctrl.dishEmpty = false
               $ctrl.favoriteDishFound = true;
@@ -42,6 +44,8 @@
         };
         MenuService.getMenuItem($ctrl.favoriteDish)
           .then(function (data) {
+            console.log("here2: ")
+            console.log(data)
             const favoriteMenuItemImgPath = 'images/menu/' + data.imageData[0] + '/' + data.imageData[0] + data.imageData[1] + '.jpg';
             data = {
               ...data,
