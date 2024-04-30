@@ -18,7 +18,6 @@
         num += shortName.charAt(i)
       }
     }
-
     temp = parseInt(num) - 1
     num = temp.toString();
     if (temp === 0) {
@@ -27,7 +26,6 @@
     else {
       imgNum = num
     }
-      
    
     endPath = `/menu_items/${category.toUpperCase()}/menu_items/${num}.json`
     console.log(endPath)

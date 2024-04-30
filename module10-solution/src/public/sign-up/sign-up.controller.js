@@ -14,17 +14,12 @@
         $ctrl.favoriteDishFound = false;
       };
       $ctrl.dishValidation = function (event) {
-        console.log( "top: " + $ctrl.favoriteDish)
         if (!$ctrl.favoriteDish) {
-            console.log("not found: " + $ctrl.favoriteDish)
           $ctrl.dishEmpty = true;
           return;
         }
         MenuService.getMenuItem($ctrl.favoriteDish)
           .then(function (data) {
-            console.log("here1: ")
-            console.log(data)
-            console.log(data.responseData)
             if (data.responseData) {
               $ctrl.dishEmpty = false
               $ctrl.favoriteDishFound = true;
@@ -45,8 +40,6 @@
         };
         MenuService.getMenuItem($ctrl.favoriteDish)
           .then(function (data) {
-            console.log("here2: ")
-            console.log(data)
             const favoriteMenuItemImgPath = 'images/menu/' + data.imageData[0] + '/' + data.imageData[0] + data.imageData[1] + '.jpg';
             data = {
               ...data,
