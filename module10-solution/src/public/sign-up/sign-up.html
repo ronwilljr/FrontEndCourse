@@ -1,9 +1,9 @@
 <style>
     .ng-touched.ng-invalid {
-      background-color: red;
+      background-color: rgb(255, 178, 178);
     }
     .ng-touched.ng-valid {
-      background-color: green;
+      background-color: rgb(203, 248, 203);
     }
   </style>
   <div class="container">
@@ -41,7 +41,7 @@
             <input type="phone" name="phone" id="phone" placeholder="###-###-###" ng-model="signUpCtrl.phone"
               pattern="(\d{3})(\d{3})(\d{4})" class="form-control">
             <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched"
-              style="color: white; background-color: red">Invalid Entry</span>
+              style="color: white; background-color: red">10 Digit Number Required</span>
           </p>
           <p>
             <label for="favoriteDish">Favorite Dish:</label>
@@ -49,9 +49,10 @@
               ng-model="signUpCtrl.favoriteDish" minlength="2" ng-maxlength="4" ng-blur='signUpCtrl.dishValidation(event)'
               ng-change="signUpCtrl.dishChanged(event)" class="form-control" required>
             <span ng-if="signUpCtrl.dishEmpty && signUpForm.favoriteDish.$touched"
-              style="color: white; background-color: red">Must Enter Favorate Dish To Validate</span>
-            <span ng-if="signUpCtrl.favoriteDishFound" style="color: white; background-color: green">Favorate Dish
-              Found!</span>
+              style="color: white; background-color: red">Entry Required to Check for Dish</span>
+            <span ng-if="signUpCtrl.favoriteDishFound" style="color: white; background-color: green">
+                Favorite Dish Found!
+            </span>
             <span
               ng-if="(signUpForm.favoriteDish.$error.minlength || signUpForm.favoriteDish.$error.minlength) && signUpForm.favoriteDish.$touched"
               style="color: white; background-color: red">1 or 2 letters followed by 1 or 2 numbers</span>

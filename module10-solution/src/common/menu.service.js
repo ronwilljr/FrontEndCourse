@@ -17,6 +17,7 @@
       }
     }
     endPath = `/menu_items/${category.toUpperCase()}/menu_items/${num}.json`
+    console.log(endPath)
     return { 
       directory: endPath, 
       imgData: [category, num]
@@ -27,22 +28,22 @@
   function MenuService($http, ApiPath) {
     var service = this;
 
-    service.getCategories = function () {
-      return $http.get(ApiPath + '/categories.json').then(function (response) {
-        return response.data;
-      });
-    };
+    // service.getCategories = function () {
+    //   return $http.get(ApiPath + '/categories.json').then(function (response) {
+    //     return response.data;
+    //   });
+    // };
 
-    service.getMenuItems = function (category) {
-      var config = {};
-      if (category) {
-        config.params = { 'category': category };
-      }
+    // service.getMenuItems = function (category) {
+    //   var config = {};
+    //   if (category) {
+    //     config.params = { 'category': category };
+    //   }
 
-      return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
-        return response.data;
-      });
-    };
+    //   return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
+    //     return response.data;
+    //   });
+    // };
 
     service.getMenuItem = function (shortName) {
       const directories = shortNameDirectoryBuilder(shortName);
