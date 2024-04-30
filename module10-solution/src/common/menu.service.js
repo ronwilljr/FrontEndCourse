@@ -8,7 +8,7 @@
     var category = '';
     var num = '';
     var endPath = '';
-    var temp = 0;
+    var temp = -1;
     var imgNum = '';
     for (var i = 0; i < shortName.length; i++) {
       if (isNaN(shortName.charAt(i))) {
