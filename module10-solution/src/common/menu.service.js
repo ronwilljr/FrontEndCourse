@@ -45,7 +45,7 @@
       const directories = shortNameDirectoryBuilder(shortName);
       return $http.get(ApiPath + directories.directory).then(function (response) {
         var data = {
-          ...response.data,
+          responseData: response.data,
           imageData: directories.imgData
         };
         return data;
