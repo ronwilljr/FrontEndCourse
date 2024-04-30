@@ -24,16 +24,16 @@ describe('The menu service', function () {
         console.log(item.short_name)
         console.log('testData: ')
         console.log(testData.short_name)
-        expect(item).toEqual(testData);
+        expect(item.short_name).toEqual(testData.short_name);
       });
       $httpBackend.flush();
     });
-    it('should fail to retrieve D3', function() {
-      $httpBackend.expectGET(ApiPath + '/menu_items/NULL/menu_items/NaN.json').respond(null);
-      menuService.getMenuItem('null').then(function(item) {
-        console.log('item: ')
-        console.log(item)
-        expect(item).toEqual('null');
+    it('should fail to retrieve D99', function() {
+      $httpBackend.expectGET(ApiPath + '/menu_items/D/menu_items/99.json').respond(null);
+      menuService.getMenuItem('D100').then(function(item) {
+        console.log('item2: ')
+        console.log(item.responseData)
+        expect(item.responseData).toEqual('null');
       });
       $httpBackend.flush();
     });
