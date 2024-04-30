@@ -1,0 +1,74 @@
+<style>
+    .ng-touched.ng-invalid {
+      background-color: red;
+    }
+    .ng-touched.ng-valid {
+      background-color: green;
+    }
+  </style>
+  <div class="container">
+    <h2>Sign Up</h2>
+
+    <form action="#" name="signUpForm" novalidate>
+      <div class="col">
+        <div class="">
+          <p>Name and E-mail Address Required.</p>
+          <p>
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" ng-model="signUpCtrl.firstName" minlength="2"
+              class="form-control" required>
+            <span
+              ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched"
+              style="color: white; background-color: red">At least 2 characters required.</span>
+          </p>
+          <p>
+            <label for="lastName">Last name:</label>
+            <input type="text" name="lastName" id="lastName" ng-model="signUpCtrl.lastName" minlength="2"
+              class="form-control" required>
+            <span
+              ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched"
+              style="color: white; background-color: red">At least 2 characters required.</span>
+          </p>
+          <p>
+            <label for="email">E-mail Address:</label>
+            <input type="email" name="email" id="email" ng-model="signUpCtrl.email" minlength="2" class="form-control"
+              required>
+            <span ng-if="(signUpForm.email.$invalid || signUpForm.email.$error.required) && signUpForm.email.$touched"
+              style="color: white; background-color: red">Invalid Entry</span>
+          </p>
+          <p>
+            <label for="phone">Phone Number:</label>
+            <input type="phone" name="phone" id="phone" placeholder="###-###-###" ng-model="signUpCtrl.phone"
+              pattern="(\d{3})(\d{3})(\d{4})" class="form-control">
+            <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched"
+              style="color: white; background-color: red">Invalid Entry</span>
+          </p>
+          <p>
+            <label for="favoriteDish">Favorite Dish:</label>
+            <input type="text" name="favoriteDish" id="favoriteDish" placeholder="Enter short name of favorite dish"
+              ng-model="signUpCtrl.favoriteDish" minlength="2" ng-maxlength="4" ng-blur='signUpCtrl.dishValidation(event)'
+              ng-change="signUpCtrl.dishChanged(event)" class="form-control" required>
+            <span ng-if="signUpCtrl.dishEmpty && signUpForm.favoriteDish.$touched"
+              style="color: white; background-color: red">Must Enter Favorate Dish To Validate</span>
+            <span ng-if="signUpCtrl.favoriteDishFound" style="color: white; background-color: green">Favorate Dish
+              Found!</span>
+            <span
+              ng-if="(signUpForm.favoriteDish.$error.minlength || signUpForm.favoriteDish.$error.minlength) && signUpForm.favoriteDish.$touched"
+              style="color: white; background-color: red">1 or 2 letters followed by 1 or 2 numbers</span>
+            <span ng-if="!signUpCtrl.favoriteDishFound && signUpForm.favoriteDish.$touched"
+              style="color:white; background-color: red">No such menu number exists</span>
+          </p>
+          <p><button class="btn btn-primary pull-right" ng-disabled="signUpForm.$invalid || !signUpCtrl.favoriteDishFound"
+              ng-click="signUpCtrl.signUp($event)">Sign Up</button></p>
+        </div>
+        <div class="sucessfull-sign-up">
+          <div class="panel panel-success" ng-if="signUpCtrl.registrationSuccess">
+            <div class="panel-heading"> Sign Up Successful </div>
+            <div class="panel-body" style="color: green">
+              <p>Your information has been saved</p>
+              <p><a ui-sref="public.myInfo" class="btn btn-primary">View My Info</a></p>
+            </div>
+            </div>
+        </div>
+    </form>
+  </div>

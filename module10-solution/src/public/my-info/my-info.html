@@ -1,0 +1,28 @@
+<div class="container text-center">
+    <h2>My Information</h2>
+    <div ng-if="myInfoCtrl.signedUp">
+      <div class="col text-center">
+        <p>First Name: {{ myInfoCtrl.firstName }}</p>
+        <p>Last Name: {{ myInfoCtrl.lastName }}</p>
+        <p>E-mail Address: {{ myInfoCtrl.email }}</p>
+        <p>Phone Number: {{ myInfoCtrl.phone }}</p>
+      </div>
+      <div class="text-center">
+        <h3>Favorite Dish:</h3>
+        <div ng-if="myInfoCtrl.favoriteMenuItem">
+          <h4>{{ myInfoCtrl.favoriteMenuItem.name }} [{{ myInfoCtrl.favoriteDish }}]</h4>
+          <p>{{ myInfoCtrl.favoriteMenuItem.description }}</p>
+        </div>
+        <div ng-show="!myInfoCtrl.favoriteMenuItem">
+          <p>Invalid Entry</p>
+        </div>
+        <img ng-src="{{myInfoCtrl.favoriteMenuItem.imgPath}}" alt="Menu Item Image">
+      </div>
+    </div>
+    <div ng-if="!myInfoCtrl.signedUp">
+        <p>Not Signed Up Yet. Sign up Now!</p>
+        <p>
+            <a ui-sref="public.signUp" class="btn btn-primary">Sign Up Now!</a>
+        </p>
+    </div>
+  </div>
