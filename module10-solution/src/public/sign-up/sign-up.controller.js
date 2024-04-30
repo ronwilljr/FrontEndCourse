@@ -14,7 +14,9 @@
         $ctrl.favoriteDishFound = false;
       };
       $ctrl.dishValidation = function (event) {
+        console.log( "top: " + $ctrl.favoriteDish)
         if (!$ctrl.favoriteDish) {
+            console.log("not found: " + $ctrl.favoriteDish)
           $ctrl.dishEmpty = true;
           return;
         }

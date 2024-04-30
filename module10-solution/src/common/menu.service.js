@@ -15,7 +15,12 @@
       }
       else {
         temp = parseInt(shortName.charAt(i)) - 1
-        num += temp.toString();
+        if (temp === 0) {
+          num += "";
+        }
+        else {
+          num += temp.toString();
+        }
       }
     }
     endPath = `/menu_items/${category.toUpperCase()}/menu_items/${num}.json`
