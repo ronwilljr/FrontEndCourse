@@ -33,7 +33,7 @@ describe('The menu service', function () {
       menuService.getMenuItem('D100').then(function(item) {
         console.log('item2: ')
         console.log(item.responseData)
-        expect(item.responseData).toEqual('null');
+        expect(item.responseData).toEqual(null);
       });
       $httpBackend.flush();
     });
