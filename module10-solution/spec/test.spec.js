@@ -19,7 +19,7 @@ describe('The menu service', function () {
     });
     it('should retrieve D3', function() {
       $httpBackend.expectGET(ApiPath + '/menu_items/D/menu_items/3.json').respond(testData);
-      menuService.getMenuItem('D3').then(function(item) {
+      menuService.getMenuItem('D2').then(function(item) {
         console.log('item: ')
         console.log(item)
         console.log('testData: ')
