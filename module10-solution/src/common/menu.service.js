@@ -16,10 +16,11 @@
       else {
         temp = parseInt(shortName.charAt(i)) - 1
         if (temp === 0) {
-          num += "";
+          imgNum += "";
         }
         else {
           num += temp.toString();
+          imgNum = num
         }
       }
     }
@@ -27,7 +28,7 @@
     console.log(endPath)
     return { 
       directory: endPath, 
-      imgData: [category, num]
+      imgData: [category, imgNum]
     };
   }
 
