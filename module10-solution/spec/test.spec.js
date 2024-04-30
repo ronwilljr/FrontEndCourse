@@ -20,10 +20,6 @@ describe('The menu service', function () {
     it('should retrieve D3', function() {
       $httpBackend.expectGET(ApiPath + '/menu_items/D/menu_items/3.json').respond(testData);
       menuService.getMenuItem('D4').then(function(item) {
-        console.log('item: ')
-        console.log(item.short_name)
-        console.log('testData: ')
-        console.log(testData.short_name)
         expect(item.short_name).toEqual(testData.short_name);
       });
       $httpBackend.flush();
@@ -31,8 +27,6 @@ describe('The menu service', function () {
     it('should fail to retrieve D99', function() {
       $httpBackend.expectGET(ApiPath + '/menu_items/D/menu_items/99.json').respond(null);
       menuService.getMenuItem('D100').then(function(item) {
-        console.log('item2: ')
-        console.log(item.responseData)
         expect(item.responseData).toEqual(null);
       });
       $httpBackend.flush();

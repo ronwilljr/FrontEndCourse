@@ -28,7 +28,6 @@
     }
    
     endPath = `/menu_items/${category.toUpperCase()}/menu_items/${num}.json`
-    console.log(endPath)
     return { 
       directory: endPath, 
       imgData: [category, imgNum]
