@@ -46,7 +46,8 @@
       return $http.get(ApiPath + directories.directory).then(function (response) {
         var data = {
           ...response.data,
-          imageData: directories.imgData
+          imageData: directories.imgData,
+          responseData: response.data
         };
         return data;
       });

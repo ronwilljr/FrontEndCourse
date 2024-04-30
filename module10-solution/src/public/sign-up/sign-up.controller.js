@@ -24,6 +24,7 @@
           .then(function (data) {
             console.log("here1: ")
             console.log(data)
+            console.log(data.responseData)
             if (data) {
               $ctrl.dishEmpty = false
               $ctrl.favoriteDishFound = true;
