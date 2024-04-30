@@ -10,7 +10,6 @@
       $ctrl.registrationSuccess = false;
       $ctrl.favoriteDishFound = false;
       $ctrl.dishEmpty = false;
-      $ctrl.testValue = 'A8'; 
       $ctrl.dishChanged = function (event) {
         $ctrl.favoriteDishFound = false;
       };

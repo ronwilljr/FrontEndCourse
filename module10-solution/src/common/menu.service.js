@@ -8,12 +8,14 @@
     var category = '';
     var num = '';
     var endPath = '';
+    var temp = 0;
     for (var i = 0; i < shortName.length; i++) {
       if (isNaN(shortName.charAt(i))) {
         category += shortName.charAt(i);
       }
       else {
-        num += shortName.charAt(i);
+        temp = parseInt(shortName.charAt(i)) - 1
+        num += temp.toString();
       }
     }
     endPath = `/menu_items/${category.toUpperCase()}/menu_items/${num}.json`
@@ -27,23 +29,6 @@
   MenuService.$inject = ['$http', 'ApiPath'];
   function MenuService($http, ApiPath) {
     var service = this;
-
-    // service.getCategories = function () {
-    //   return $http.get(ApiPath + '/categories.json').then(function (response) {
-    //     return response.data;
-    //   });
-    // };
-
-    // service.getMenuItems = function (category) {
-    //   var config = {};
-    //   if (category) {
-    //     config.params = { 'category': category };
-    //   }
-
-    //   return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
-    //     return response.data;
-    //   });
-    // };
 
     service.getMenuItem = function (shortName) {
       const directories = shortNameDirectoryBuilder(shortName);
